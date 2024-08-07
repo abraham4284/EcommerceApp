@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }) => {
   const [isAutenticated, setisAutenticated] = useState(false);
   const [error, setError] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadingUserIndividual, setLoadingUserIndividual] = useState(true);
 
   const [domiciliosUser, setDomiciliosUser] = useState([]);
   const [errorDomicilios, setErrorDomicilios] = useState(null);
@@ -141,12 +142,12 @@ export const AuthProvider = ({ children }) => {
     try {
       const { data } = await getIdUsuariosRequest(id);
       if (!data) {
-        setLoading(false);
+        setLoadingUserIndividual(false);
         setisAutenticated(false);
       }
       setUsuarioIndividual(data);
       setisAutenticated(true);
-      setLoading(false);
+      setLoadingUserIndividual(false);
     } catch (error) {
       console.log(error);
       setError(error.response.data.message);
@@ -287,6 +288,7 @@ export const AuthProvider = ({ children }) => {
         registroSuperAdmin,
         updateUsuarios,
         getIdUsuarios,
+        loadingUserIndividual,
 
         // Domicilios
         getIdDomicliosUser,

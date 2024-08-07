@@ -4,7 +4,7 @@ import { TableUsuariosDomicilios } from "./components/Usuarios/TableUsuariosDomi
 import { ModalUsuariosDomicilios } from "./components/Usuarios/ModalUsuariosDomicilios";
 
 export const ConfiguracionUsuario = () => {
-  const { usuarios, getIdUsuarios, usuarioIndividual, getIdDomicliosUser, domiciliosUser, deleteDomicilios, loading } = UseAuth();
+  const { usuarios, getIdUsuarios, usuarioIndividual, getIdDomicliosUser, domiciliosUser, deleteDomicilios, loadingUserIndividual } = UseAuth();
   const { idusuarios } = usuarios;
   const [dataToEdit, setDataToEdit] = useState(null);
 
@@ -16,9 +16,7 @@ export const ConfiguracionUsuario = () => {
   const { apellido, nombre, email, DNI, telefono, username } =
     usuarioIndividual;
 
-
-
-
+   
   return (
     <div className="container">
       <div className="row mt-5">
@@ -26,19 +24,19 @@ export const ConfiguracionUsuario = () => {
           <div className="card w-75 mb-3 bg-ventas text-white">
             <div className="card-body">
               <h5 className="card-title">
-                Bienvenido {apellido} {nombre}
+                Bienvenido { loadingUserIndividual ? "Cargando..." : `${apellido} ${nombre}`}
               </h5>
               <p className="card-text mt-3">
-                <i className="fa-solid fa-user"></i> {username}
+                <i className="fa-solid fa-user"></i> {loadingUserIndividual ? "Cargando..." : username}
               </p>
               <p className="card-text">
-                <i className="fa-regular fa-envelope"></i> {email}
+                <i className="fa-regular fa-envelope"></i> {loadingUserIndividual ? "Cargando..." : email}
               </p>
               <p className="card-text">
-                <i className="fa-regular fa-address-card"></i> {DNI}
+                <i className="fa-regular fa-address-card"></i> {loadingUserIndividual ? "Cargando..." : DNI}
               </p>
               <p className="card-text">
-                <i className="fa-solid fa-phone"></i> {telefono}
+                <i className="fa-solid fa-phone"></i> {loadingUserIndividual ? "Cargando..." : telefono}
               </p>
             </div>
           </div>
