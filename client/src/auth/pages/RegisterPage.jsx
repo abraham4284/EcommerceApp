@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { UseAuth } from "../../context/AuthProvider";
 import Swal from "sweetalert2";
+import { Spiner } from "../../components";
 
 const initialForm = {
   nombre: "",
@@ -28,7 +29,7 @@ export const RegisterPage = () => {
     onResetForm,
   } = useForm(initialForm);
 
-  const { registro, error, isAutenticated } = UseAuth();
+  const { registro, error, isAutenticated, loading } = UseAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -63,6 +64,7 @@ export const RegisterPage = () => {
 
   useEffect(() => {
     if (isAutenticated) {
+       if(loading) return <Spiner />
       navigate("/");
     }
   }, [isAutenticated]);

@@ -10,7 +10,7 @@ const initialForm = {
 };
 
 export const LoginPage = () => {
-  const { login, isAutenticated, usuarios, error } = UseAuth();
+  const { login, isAutenticated, usuarios, error, loading } = UseAuth();
   const { username, password, onInputChange, onResetForm } =
     useForm(initialForm);
   const navigate = useNavigate();
@@ -26,8 +26,10 @@ export const LoginPage = () => {
 
   useEffect(() => {
     if (isAutenticated && usuarios.rol === "cliente") {
+      if(loading) return <Spiner />
       navigate("/");
     } else if (isAutenticated && usuarios.rol === "superAdmin") {
+      if(loading) return <Spiner />
       navigate("/superAdmin");
     }
   }, [isAutenticated, usuarios]);
