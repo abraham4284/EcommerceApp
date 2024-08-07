@@ -1,9 +1,10 @@
-import axios from "../Api/axios.js";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useVentas } from "../context/VentasContext.jsx";
 import { formatearNumero } from "../helpers/FormatearNumero.js";
 import { sumarTotalesDetallesVentas } from "../helpers/SumarTotalesCarrito.js";
+import { Spiner } from '../components/Spiner.jsx'
+
 
 export const ComprasDetallesPage = () => {
   const { id } = useParams();
@@ -18,6 +19,7 @@ export const ComprasDetallesPage = () => {
     getIdDetalleVentasApi(id);
     getVentas();
   }, [id]);
+
 
   const filteVentas = ventas.filter((el) => el.idventas === Number(id));
 
