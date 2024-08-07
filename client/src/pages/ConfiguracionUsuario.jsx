@@ -26,7 +26,7 @@ export const ConfiguracionUsuario = () => {
           <div className="card w-75 mb-3 bg-ventas text-white">
             <div className="card-body">
               <h5 className="card-title">
-                Bienvenido {apellido} {nombre}
+                Bienvenido { loading ? "Cargando..." : `${apellido} ${nombre}`}
               </h5>
               <p className="card-text mt-3">
                 <i className="fa-solid fa-user"></i> {loading ? "Cargando..." : username}
