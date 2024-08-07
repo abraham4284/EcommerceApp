@@ -4,7 +4,7 @@ import { TableUsuariosDomicilios } from "./components/Usuarios/TableUsuariosDomi
 import { ModalUsuariosDomicilios } from "./components/Usuarios/ModalUsuariosDomicilios";
 
 export const ConfiguracionUsuario = () => {
-  const { usuarios, getIdUsuarios, usuarioIndividual, getIdDomicliosUser, domiciliosUser, deleteDomicilios } = UseAuth();
+  const { usuarios, getIdUsuarios, usuarioIndividual, getIdDomicliosUser, domiciliosUser, deleteDomicilios, loading } = UseAuth();
   const { idusuarios } = usuarios;
   const [dataToEdit, setDataToEdit] = useState(null);
 
@@ -29,16 +29,16 @@ export const ConfiguracionUsuario = () => {
                 Bienvenido {apellido} {nombre}
               </h5>
               <p className="card-text mt-3">
-                <i className="fa-solid fa-user"></i> {username}
+                <i className="fa-solid fa-user"></i> {loading ? "Cargando..." : username}
               </p>
               <p className="card-text">
-                <i className="fa-regular fa-envelope"></i> {email}
+                <i className="fa-regular fa-envelope"></i> {loading ? "Cargando..." : email}
               </p>
               <p className="card-text">
-                <i className="fa-regular fa-address-card"></i> {DNI}
+                <i className="fa-regular fa-address-card"></i> {loading ? "Cargando..." : DNI}
               </p>
               <p className="card-text">
-                <i className="fa-solid fa-phone"></i> {telefono}
+                <i className="fa-solid fa-phone"></i> {loading ? "Cargando..." : telefono}
               </p>
             </div>
           </div>
