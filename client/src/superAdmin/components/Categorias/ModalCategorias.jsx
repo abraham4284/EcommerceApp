@@ -21,12 +21,12 @@ export const ModalCategorias = ({ dataToEdit, setDataToEdit, createCategorias, u
     setSubCat("")
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (dataToEdit) {
-      updateCategorias(dataToEdit.idcategoria, { nombreCat, subCat });
+      await updateCategorias(dataToEdit.idcategoria, { nombreCat, subCat });
     } else {
-      createCategorias({ nombreCat, subCat });
+      await createCategorias({ nombreCat, subCat });
     }
     getCategorias();
     onResetForm()
