@@ -238,6 +238,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkLogin = async () => {
       const cookies = Cookies.get();
+      console.log(cookies.token,'Token de chequeo');
       if (!cookies.token) {
         setisAutenticated(false);
         setLoading(false);
