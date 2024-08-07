@@ -235,29 +235,36 @@ export const AuthProvider = ({ children }) => {
     setUsuarios(null);
   };
 
-
-  const checkLogin = async () => {
-    const token = Cookies.get("token");
-    if (!token) {
-      setisAutenticated(false);
-      setLoading(false);
-      return;
-    }
-    try {
-      const { data } = await verifyTokenRequest();
-      setUsuarios(data);
-      setisAutenticated(true);
-    } catch (error) {
-      setisAutenticated(false);
-      setUsuarios(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-
   useEffect(() => {
-    
+    const checkLogin = async () => {
+      const cookies = Cookies.get();
+      console.log(cookies.token,'Token de chequeo');
+      if (!cookies.token) {
+        setisAutenticated(false);
+        setLoading(false);
+        setUsuarios(null);
+        return;
+      }
+      try {
+        const { data } = await verifyTokenRequest(cookies.token);
+        console.log(data, "checkLogin AutContext");
+        if (!data) {
+          setisAutenticated(false);
+          setLoading(false);
+          setUsuarios(null);
+        } else {
+          setisAutenticated(true);
+          setUsuarios(data);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.log(error);
+        console.log("Error funcion CheckLogin AuthContext");
+        setisAutenticated(false);
+        setLoading(false);
+        setUsuarios(null);
+      }
+    };
     checkLogin();
   }, []);
 
