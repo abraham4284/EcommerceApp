@@ -46,18 +46,7 @@ export const NavBarClientes = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <NavDropdown
-              title="Categorías"
-              id="basic-nav-dropdown"
-              className="nav-link-custom"
-            >
-              {categorias.map((el) => (
-                <NavDropdown.Item as={Link} to="#" key={el.idcategoria}>
-                  {el.nombreCat}
-                </NavDropdown.Item>
-              ))}
-              
-            </NavDropdown>
+            
             <Nav.Link as={Link} to="/contacto" className="nav-link-custom">
               Contacto
             </Nav.Link>
