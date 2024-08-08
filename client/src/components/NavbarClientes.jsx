@@ -39,8 +39,8 @@ export const NavBarClientes = () => {
   };
 
   return (
-    <div className="navbar-wrapper d-flex justify-content-around navClientes">
-      <Navbar bg="light" expand="lg" className="navbar-custom">
+    <div className="navbar-wrapper d-flex justify-content navClientes">
+      <Navbar bg="light" expand="lg" className="navbar-custom justify-content">
         <Navbar.Brand as={Link} to="/" className="navbar-brand-custom">
           E-commerce
         </Navbar.Brand>

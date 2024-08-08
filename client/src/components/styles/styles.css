@@ -30,13 +30,24 @@
     }
 }
 .navClientes{
+    
+    display: flex;
+    justify-content: center;
     margin: 0px;
     
 }
 .navClientes>nav{
-
+    justify-content: center;
     width: 100%;
+    margin-left: 25%;
 }
+
+/* Estilos específicos para el Navbar */
+.navbar-custom {
+    display: flex;
+    justify-content: space-between; /* Ajusta el espaciado entre elementos */
+    width: 100%; /* Asegura que el Navbar ocupe todo el ancho disponible */
+  }
 
 .bodyClient{
     padding: 0px;
