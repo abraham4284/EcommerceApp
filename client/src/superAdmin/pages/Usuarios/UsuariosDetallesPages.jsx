@@ -16,7 +16,7 @@ export const UsuariosDetallesPages = () => {
   const { rol, nombre, apellido, email, DNI, telefono, username } = usuarioIndividual;
 
   return (
-    <div className="container">
+    <div className="container ms-5">
       <h3 className="mt-3">Informacion de Usuario</h3>
       <div className="row">
         <div className="col-12 mt-3">

@@ -17,10 +17,10 @@ export const CardProductos = ({ data }) => {
         const productoEncontrado = chekingProductoCarrito(datos);
         return (
           <div
-            className="col-lg-2 col-md-4 col-sm-6 mb-4 mt-5 producto-hover"
+            className="col-lg-2 col-md-4 col-sm-6 mb-4 mt-5 "
             key={datos.idproductos}
           >
-            <div className="card h-100">
+            <div className="card h-100 producto-hover">
               <img
                 src={datos.img}
                 className="card-img-top product-image"

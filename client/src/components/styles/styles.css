@@ -29,3 +29,15 @@
         transform: scale(1);
     }
 }
+.navClientes{
+    margin: 0px;
+    
+}
+.navClientes>nav{
+
+    width: 100%;
+}
+
+.bodyClient{
+    padding: 0px;
+}

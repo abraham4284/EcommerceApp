@@ -25,10 +25,10 @@ export const Carrito = () => {
       <div className="container">
         {carritoCompras.map((datos) => (
           <div
-            className="row mt-5 align-items-center justify-content-center"
+            className="row  mt-5 align-items-center justify-content-center"
             key={datos.idproductos}
           >
-            <div className="col-sm-2">
+            <div className=" col-2">
               <img
                 src={datos.img}
                 alt={datos.nombre}
@@ -36,11 +36,11 @@ export const Carrito = () => {
               />
             </div>
 
-            <div className="col-sm-2">
+            <div className=" col-2 ms-5">
               <span>{datos.nombre}</span>
             </div>
 
-            <div className="col-sm-2">
+            <div className=" col-2 ms-5">
               <div className="contador">
                 <span
                   onClick={() => handleDecrement(datos.idproductos)}
@@ -57,19 +57,19 @@ export const Carrito = () => {
                 </span>
               </div>
             </div>
-            <div className="col-sm-2">
+            <div className=" col-2 ms-5 ">
               <span>
                 {formatearNumero(
                   datos.precio * (counter[datos.idproductos] || 1)
                 )}
               </span>
             </div>
-            <div className="col-sm-2">
+            <div className=" col-2 ms-5 ">
               <button
                 className="btn btn-danger"
                 onClick={() => deleteProducto(datos.idproductos)}
               >
-                <i className="fa-solid fa-trash"></i>
+                <i className="fa-solid fa-trash "></i>
               </button>
             </div>
           </div>
@@ -79,7 +79,7 @@ export const Carrito = () => {
           className="row justify-content-end"
           hidden={carritoCompras.length === 0 ? true : false}
         >
-          <div className="col-6">
+          <div className="col-sm-6 ">
             <CardCarritoCompras
               totalCarrito={totalCarrito}
               direccion={usuarios ? usuarios.direccion : "no hay"}
