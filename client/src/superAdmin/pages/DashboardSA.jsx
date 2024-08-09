@@ -12,7 +12,7 @@ export const Dash = () => {
   },[])
 
   return (
-    <div className="container">
+    <div className="container ms-5">
       <CardInfoSA />
       <StockCritico />
     </div>

@@ -6,7 +6,7 @@ export const NavbarSuperAdmin = () => {
 
   return (
     <div
-      className="d-flex flex-column p-3 bg-light"
+      className="d-flex flex-column p-3 bg-light position-fixed"
       style={{ width: "280px", height: "100vh" }}
     >
       <Link
@@ -86,7 +86,7 @@ export const NavbarSuperAdmin = () => {
         </li>
       </ul>
       <hr />
-      <div className="dropdown">
+      {/* <div className="dropdown">
         <Link
           to="#"
           className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
@@ -101,7 +101,8 @@ export const NavbarSuperAdmin = () => {
             height="32"
             className="rounded-circle me-2"
           />
-          <strong>mdo</strong>
+          
+           <strong>mdo</strong>
         </Link>
         <ul
           className="dropdown-menu text-small shadow"
@@ -130,8 +131,8 @@ export const NavbarSuperAdmin = () => {
               Sign out
             </Link>
           </li>
-        </ul>
-      </div>
+        </ul> 
+      </div> */}
     </div>
   );
 };

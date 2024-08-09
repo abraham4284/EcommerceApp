@@ -68,7 +68,7 @@ export const HomeSuperAdmin = () => {
         </div>
       </div>
 
-      <div className="row mt-5">
+      <div className="row mt-5 ms-5">
         <div className="col-sm-12">
           <div className="row">
             <div className="col-sm-12">
@@ -79,7 +79,7 @@ export const HomeSuperAdmin = () => {
                 >
                   Usuarios ADMIN
                 </div>
-                <div className="card-body">
+                <div className="card-body ">
                   <div className="row">
                     <div className="col-sm-10">
                       <div className="form-group">

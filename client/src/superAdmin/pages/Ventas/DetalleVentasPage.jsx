@@ -39,7 +39,7 @@ export const DetalleVentasPage = () => {
       {loading ? (
         <Spiner />
       ) : (
-        <div className="container">
+        <div className="container ms-5">
           <h3 className="mt-5">Numero Factura #{numeroFactura}</h3>
           <h4 className="mt-5">Estado {estado}</h4>
           <div className="row">

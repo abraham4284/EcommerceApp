@@ -35,7 +35,7 @@ export const UsuariosPagesSA = () => {
   const data = filterUserSearch.length > 0 ? filterUserSearch : filterUsers
 
   return (
-    <div className="container mt-3">
+    <div className="container mt-3 ms-5">
       <div className="row mt-5">
         <div className="col-sm-12">
           <div className="row">

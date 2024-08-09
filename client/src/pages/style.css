@@ -11,10 +11,12 @@
 }
 
 .producto-hover{
+  transition: transform 0.2s ease; /* Suaviza el efecto de zoom */
   transition: transform 0.3s ease-in-out
 }
 
 .producto-hover:hover{
+  transform: scale(1.1); /* Aumenta el tamaño del elemento en un 20% */
   cursor: pointer;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2)
 }

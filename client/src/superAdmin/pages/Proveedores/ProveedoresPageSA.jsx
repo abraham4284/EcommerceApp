@@ -31,7 +31,7 @@ export const ProveedoresPageSA = () => {
   const data = searchInput ? filterProveedores : proveedores;
 
   return (
-    <div className="container mt-3">
+    <div className="container mt-3 ms-5">
       <div className="row mt-5">
         <div className="col-sm-12">
           <div className="row">

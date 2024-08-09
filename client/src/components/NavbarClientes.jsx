@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./styles/styles.css";
 import {
   Navbar,
   Nav,
@@ -38,8 +39,8 @@ export const NavBarClientes = () => {
   };
 
   return (
-    <div className="navbar-wrapper d-flex justify-content-around">
-      <Navbar bg="light" expand="lg" className="navbar-custom">
+    <div className="navbar-wrapper d-flex justify-content navClientes">
+      <Navbar bg="light" expand="lg" className="navbar-custom justify-content">
         <Navbar.Brand as={Link} to="/" className="navbar-brand-custom">
           E-commerce
         </Navbar.Brand>
