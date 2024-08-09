@@ -29,6 +29,10 @@ export const ComprasPage = () => {
             >
               <Spiner />{" "}
             </div>
+          ) : ventasUsuarios.length === 0 ? (
+            <div className="alert alert-primary" role="alert">
+              Sin compras Registradas
+            </div>
           ) : (
             <table className="table">
               <thead>
