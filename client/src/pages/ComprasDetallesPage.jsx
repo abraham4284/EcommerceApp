@@ -3,7 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useVentas } from "../context/VentasContext.jsx";
 import { formatearNumero } from "../helpers/FormatearNumero.js";
 import { sumarTotalesDetallesVentas } from "../helpers/SumarTotalesCarrito.js";
-import { Spiner } from "../components/Spiner.jsx";
+import { SpinderDetalles } from "../components/SpinderDetalles.jsx";
+
+
+
 
 export const ComprasDetallesPage = () => {
   const { id } = useParams();
@@ -15,7 +18,7 @@ export const ComprasDetallesPage = () => {
     getVentas,
     loadingVentaIndividual,
     setLoadingVentaIndividual,
-    setDetalleVentas
+    setDetalleVentas,
   } = useVentas();
 
   useEffect(() => {
@@ -29,7 +32,7 @@ export const ComprasDetallesPage = () => {
 
     getDataVentas(id);
   }, [id]);
-  
+
   const filteVentas = ventas.filter((el) => el.idventas === Number(id));
 
   const numeroFactura =
@@ -49,7 +52,7 @@ export const ComprasDetallesPage = () => {
           className="d-flex justify-content-center"
           style={{ marginTop: "250px" }}
         >
-          <Spiner />{" "}
+          <SpinderDetalles />{" "}
         </div>
       ) : (
         <div className="container">
@@ -68,30 +71,21 @@ export const ComprasDetallesPage = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {detalleVentas.map((el, index) =>
-                    loadingVentaIndividual ? (
-                      <tr>
-                        <td>
-                          {" "}
-                          <Spiner />
-                        </td>
-                      </tr>
-                    ) : (
-                      <tr key={index}>
-                        <td>
-                          <img
-                            src={el.img}
-                            alt={el.nombre}
-                            style={{ maxWidth: "50px" }}
-                          />
-                        </td>
-                        <td>
-                          {el.nombre} <b> x {el.cantidad}</b>
-                        </td>
-                        <td>{formatearNumero(el.total)}</td>
-                      </tr>
-                    )
-                  )}
+                  {detalleVentas.map((el, index) => (
+                    <tr key={index}>
+                      <td>
+                        <img
+                          src={el.img}
+                          alt={el.nombre}
+                          style={{ maxWidth: "50px" }}
+                        />
+                      </td>
+                      <td>
+                        {el.nombre} <b> x {el.cantidad}</b>
+                      </td>
+                      <td>{formatearNumero(el.total)}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
