@@ -5,18 +5,16 @@ import { UseAuth } from "../context/AuthProvider.jsx";
 import { formatearNumero } from "../helpers/FormatearNumero.js";
 
 export const ComprasPage = () => {
- 
   const { usuarios } = UseAuth();
-  const { ventas, getVentas } = useVentas();
+  const { ventas, getVentas, loading } = useVentas();
 
+  useEffect(() => {
+    getVentas();
+  }, []);
 
-  
-  useEffect(()=>{
-    getVentas()
-  },[])
-
- 
-  const ventasUsuarios = ventas.filter(el=> el.idusuarios === usuarios.idusuarios);
+  const ventasUsuarios = ventas.filter(
+    (el) => el.idusuarios === usuarios.idusuarios
+  );
 
   return (
     <div className="container">
@@ -35,21 +33,32 @@ export const ComprasPage = () => {
               </tr>
             </thead>
             <tbody>
-              {ventasUsuarios.map((el) => (
-                
-                <tr key={el.idventas}>
-                  <td>{el.numeroFactura}</td>
-                  <td>{el.fecha}</td>
-                  <td>{el.estado}</td>
-                  {/* <td>{el.entrega}</td> */}
-                  <td>{formatearNumero(el.total)}</td>
-                  <td>
-                    <div className="d-flex gap-2">
-                      <Link className="btn btn-info" to={`/compras/${el.idventas}`}> <i className="fa-solid fa-eye"></i> Ver</Link>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+              {ventasUsuarios.map((el) =>
+                loading ? (
+                  <tr>
+                    <td>Cargando...</td>
+                  </tr>
+                ) : (
+                  <tr key={el.idventas}>
+                    <td>{el.numeroFactura}</td>
+                    <td>{el.fecha}</td>
+                    <td>{el.estado}</td>
+                    {/* <td>{el.entrega}</td> */}
+                    <td>{formatearNumero(el.total)}</td>
+                    <td>
+                      <div className="d-flex gap-2">
+                        <Link
+                          className="btn btn-info"
+                          to={`/compras/${el.idventas}`}
+                        >
+                          {" "}
+                          <i className="fa-solid fa-eye"></i> Ver
+                        </Link>
+                      </div>
+                    </td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </div>

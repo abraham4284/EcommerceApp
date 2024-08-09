@@ -36,15 +36,11 @@ export const ComprasDetallesPage = () => {
 
   const { totalDetalleVenta } = sumarTotalesDetallesVentas(detalleVentas);
 
-  if (loadingVentaIndividual) {
-    console.log("Cargando");
-  } else {
-    console.log("NO cargando");
-  }
-
   return (
     <div className="container">
-      <h3 className="mt-5">Numero Factura #{loadingVentaIndividual ? "Cargando..." : numeroFactura}</h3>
+      <h3 className="mt-5">
+        Numero Factura #{loadingVentaIndividual ? "Cargando..." : numeroFactura}
+      </h3>
       <div className="row mt-5">
         <div className="col-12">
           <table className="table text-center">
@@ -56,27 +52,30 @@ export const ComprasDetallesPage = () => {
               </tr>
             </thead>
             <tbody>
-              {detalleVentas.map((el, index) => (
+              {detalleVentas.map((el, index) =>
                 loadingVentaIndividual ? (
-                   <tr>
-                    <td> <Spiner /></td>
-                   </tr>
-                ): (
+                  <tr>
+                    <td>
+                      {" "}
+                      <Spiner />
+                    </td>
+                  </tr>
+                ) : (
                   <tr key={index}>
-                  <td>
-                    <img
-                      src={el.img}
-                      alt={el.nombre}
-                      style={{ maxWidth: "50px" }}
-                    />
-                  </td>
-                  <td>
-                    {el.nombre} <b> x {el.cantidad}</b>
-                  </td>
-                  <td>{formatearNumero(el.total)}</td>
-                </tr>
+                    <td>
+                      <img
+                        src={el.img}
+                        alt={el.nombre}
+                        style={{ maxWidth: "50px" }}
+                      />
+                    </td>
+                    <td>
+                      {el.nombre} <b> x {el.cantidad}</b>
+                    </td>
+                    <td>{formatearNumero(el.total)}</td>
+                  </tr>
                 )
-              ))}
+              )}
             </tbody>
           </table>
         </div>
