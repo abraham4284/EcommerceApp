@@ -3,6 +3,7 @@ import "../styles/Form.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { UseAuth } from "../../context/AuthProvider";
+import Swal from "sweetalert2";
 
 const initialForm = {
   username: "",
@@ -21,6 +22,13 @@ export const LoginPage = () => {
       username,
       password,
     };
+    if(!username || !password){
+      Swal.fire({
+        title:"Los campos son obligatorios",
+        icon:"error"
+      })
+      return;
+    }
     await login(data);
   };
 
