@@ -17,8 +17,6 @@ export const ComprasPage = () => {
 
  
   const ventasUsuarios = ventas.filter(el=> el.idusuarios === usuarios.idusuarios);
-  console.log(ventas)
-
 
   return (
     <div className="container">

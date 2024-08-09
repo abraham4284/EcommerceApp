@@ -26,6 +26,7 @@ export const VentasProvider = ({ children }) => {
   const [formaDePago, setFormaDePago] = useState([]);
   const [detalleVentas, setDetalleVentas] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadingVentaIndividual, setLoadingVentaIndividual] = useState(true);
   const [error, setError] = useState(null);
 
   const getVentas = async () => {
@@ -62,10 +63,10 @@ export const VentasProvider = ({ children }) => {
     try {
       const { data } = await getIdDetalleVentasRequest(id);
       if (!data) {
-        setLoading(false);
+        setLoadingVentaIndividual(false);
       }
       setDetalleVentas(data);
-      setLoading(false);
+      setLoadingVentaIndividual(false);
     } catch (error) {
       setError(error);
       console.log(error);
@@ -142,6 +143,7 @@ export const VentasProvider = ({ children }) => {
         ventasIndividual,
         loading,
         error,
+        loadingVentaIndividual,
         createVentas,
         getVentas,
         getIdDetalleVentas,
