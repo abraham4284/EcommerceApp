@@ -7,7 +7,7 @@ import { ModalProductos } from "../Productos/ModalProductos";
 export const StockCritico = () => {
   const { productos, updateProductos } = UseProductos();
   const [dataToEdit, setDataToEdit] = useState(null);
-  const [stockCritico, setStockCritico] = useState("");
+  const [stockCritico, setStockCritico] = useState("10");
 
   
  

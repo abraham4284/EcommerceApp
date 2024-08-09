@@ -48,7 +48,7 @@ export const NavBarClientes = () => {
         <Navbar.Collapse id="basic-navbar-nav" className="compNav">
           <Nav className="mr-auto">
             
-            <Nav.Link as={Link} to="/contacto" className="nav-link-custom">
+            <Nav.Link as={Link} to="#footer" className="nav-link-custom">
               Contacto
             </Nav.Link>
           </Nav>

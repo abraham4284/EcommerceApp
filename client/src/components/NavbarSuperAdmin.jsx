@@ -81,7 +81,7 @@ export const NavbarSuperAdmin = () => {
             <svg className="bi me-2" width="16" height="16">
               <use xlinkHref="#people-circle"></use>
             </svg>
-            Ver Wed
+            Ver Web
           </Link>
         </li>
       </ul>

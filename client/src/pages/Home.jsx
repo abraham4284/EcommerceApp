@@ -95,7 +95,7 @@ export const Home = () => {
           </div>
         </main>
       )}
-      <Footer loading={loading} />
+      <Footer loading={loading} id="footer" />
     </>
   );
 };
