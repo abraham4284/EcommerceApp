@@ -150,8 +150,10 @@ export const VentasProvider = ({ children }) => {
         deleteVentas,
         updateEstadoVentas,
         getIdVentas,
+        setLoadingVentaIndividual,
 
         getFormaDePago,
+        
       }}
     >
       {children}

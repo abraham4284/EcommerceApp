@@ -14,14 +14,17 @@ export const ComprasDetallesPage = () => {
     ventas,
     getVentas,
     loadingVentaIndividual,
+    setLoadingVentaIndividual
   } = useVentas();
 
   useEffect(() => {
+    setLoadingVentaIndividual(true)
     const getIdDetalleVentasApi = async (id) => {
       getIdDetalleVentas(id);
     };
     getIdDetalleVentasApi(id);
     getVentas();
+    setLoadingVentaIndividual(false)
   }, [id]);
 
   const filteVentas = ventas.filter((el) => el.idventas === Number(id));
