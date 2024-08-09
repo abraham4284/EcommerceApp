@@ -13,7 +13,6 @@ export const ComprasPage = () => {
     getVentas();
   }, []);
 
-
   const ventasUsuarios = ventas.filter(
     (el) => el.idusuarios === usuarios.idusuarios
   );
@@ -28,47 +27,46 @@ export const ComprasPage = () => {
               className="d-flex justify-content-center"
               style={{ marginTop: "250px" }}
             >
-              <Spiner />{" "}
+              <Spiner />
             </div>
           ) : ventasUsuarios.length === 0 ? (
             <div className="alert alert-primary" role="alert">
               Sin compras Registradas
             </div>
           ) : (
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Factura</th>
-                  <th>Fecha</th>
-                  <th>Estado</th>
-                  {/* <th>Entrega</th> */}
-                  <th>Total</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {ventasUsuarios.map((el) => (
-                  <tr key={el.idventas}>
-                    <td>{el.numeroFactura}</td>
-                    <td>{el.fecha}</td>
-                    <td>{el.estado}</td>
-                    {/* <td>{el.entrega}</td> */}
-                    <td>{formatearNumero(el.total)}</td>
-                    <td>
-                      <div className="d-flex gap-2">
-                        <Link
-                          className="btn btn-info"
-                          to={`/compras/${el.idventas}`}
-                        >
-                          {" "}
-                          <i className="fa-solid fa-eye"></i> Ver
-                        </Link>
-                      </div>
-                    </td>
+            <div className="table-responsive">
+              <table className="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Factura</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {ventasUsuarios.map((el) => (
+                    <tr key={el.idventas}>
+                      <td>{el.numeroFactura}</td>
+                      <td>{el.fecha}</td>
+                      <td>{el.estado}</td>
+                      <td>{formatearNumero(el.total)}</td>
+                      <td>
+                        <div className="d-flex gap-2">
+                          <Link
+                            className="btn btn-info btn-sm"
+                            to={`/compras/${el.idventas}`}
+                          >
+                            <i className="fa-solid fa-eye"></i> Ver
+                          </Link>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </div>
       </div>

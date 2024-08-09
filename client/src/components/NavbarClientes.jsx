@@ -45,7 +45,7 @@ export const NavBarClientes = () => {
           E-commerce
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" className="compNav">
           <Nav className="mr-auto">
             
             <Nav.Link as={Link} to="/contacto" className="nav-link-custom">

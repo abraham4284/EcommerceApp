@@ -34,13 +34,19 @@
     display: flex;
     justify-content: center;
     margin: 0px;
+    padding: 0%;
     
 }
 .navClientes>nav{
+
     justify-content: center;
     width: 100%;
-    margin-left: 25%;
+   
 }
+.compNav{
+    justify-content: space-around;
+}
+
 
 /* Estilos específicos para el Navbar */
 .navbar-custom {
