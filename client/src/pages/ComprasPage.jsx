@@ -13,6 +13,7 @@ export const ComprasPage = () => {
     getVentas();
   }, []);
 
+
   const ventasUsuarios = ventas.filter(
     (el) => el.idusuarios === usuarios.idusuarios
   );

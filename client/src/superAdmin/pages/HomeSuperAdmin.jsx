@@ -5,34 +5,11 @@ import "../components/Dashboard/styles.css";
 import { UseAuth } from "../../context/AuthProvider";
 import { TablePersonailzada } from "../../components/TablePersonailzada";
 
-const btnEditar = ({ rowData }) => {
-  const handleEditar = (data) => {
-    console.log(data);
-  };
-  return (
-    <button className="btn btn-warning" onClick={() => handleEditar(rowData)}>
-      <i className="fa-solid fa-pen-to-square"></i>
-    </button>
-  );
-};
-
-const btnEliminar = ({ rowData }) => {
-  const handleEliminar = (id) => {
-    console.log(id);
-  };
-  return (
-    <button
-      className="btn btn-danger"
-      onClick={() => handleEliminar(rowData.idusuarios)}
-    >
-      <i className="fa-solid fa-delete-left"></i>
-    </button>
-  );
-};
 
 export const HomeSuperAdmin = () => {
   // const [usuarios, setUsuarios] = useState([]);
   const { usuarios, usuariosAll, getUsuariosAll } = UseAuth();
+  const [filterUserSearch, setFilterUserSearch] = useState([]);
 
   useEffect(() => {
     const getUsuarios = async () => {
@@ -48,7 +25,26 @@ export const HomeSuperAdmin = () => {
     { key: "rol", title: "Rol" },
   ];
 
-  const acciones = [btnEditar, btnEliminar];
+  const filterUsers = usuariosAll.filter(el=> el.username !== usuarios.username);
+
+  const handleSearchUsers = (e)=>{
+    e.preventDefault();
+    const searchInputUser = e.target.value.toLocaleLowerCase();
+    if(searchInputUser === ""){
+      setFilterUserSearch(filterUsers)
+    }
+    const filterUsersFind = filterUsers.filter((el)=>{
+      return (
+        el.rol.toLocaleLowerCase().includes(searchInputUser) ||
+        el.nombre.toLocaleLowerCase().includes(searchInputUser) ||
+        el.apellido.toLocaleLowerCase().includes(searchInputUser) ||
+        el.username.toLocaleLowerCase().includes(searchInputUser)
+      )
+    })
+    setFilterUserSearch(filterUsersFind);
+  }
+
+  const data = filterUserSearch.length > 0 ? filterUserSearch : filterUsers
 
   return (
     <div className="container mt-3">
@@ -77,7 +73,7 @@ export const HomeSuperAdmin = () => {
                   className="card-header"
                   style={{ backgroundColor: "#0d6efd", color: "white" }}
                 >
-                  Usuarios ADMIN
+                  Usuarios
                 </div>
                 <div className="card-body ">
                   <div className="row">
@@ -88,21 +84,11 @@ export const HomeSuperAdmin = () => {
                           type="text"
                           className="form-control form-control-xl"
                           placeholder="Ingrese nombre de un cliente"
+                          onChange={handleSearchUsers}
                         />
                       </div>
                     </div>
-                    <div className="col-sm-2 mt-4">
-                      <div className="form-group">
-                        <button
-                          type="button"
-                          className="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
-                        >
-                          <i className="fas-solid fa fa-plus "></i> Agregar
-                        </button>
-                      </div>
-                    </div>
+                   
                   </div>
                 </div>
               </div>
@@ -112,11 +98,10 @@ export const HomeSuperAdmin = () => {
             <div className="col-sm-12">
               {/* <UsuariosSA datos={usuarios} /> */}
               <div className="card">
-                <div className="card-body">
+                <div className="card-body text-center">
                   <TablePersonailzada
-                    data={usuariosAll}
+                    data={data}
                     columns={titles}
-                    actions={acciones}
                   />
                 </div>
               </div>

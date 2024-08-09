@@ -16,6 +16,7 @@ export const ConfiguracionUsuario = () => {
   const { apellido, nombre, email, DNI, telefono, username } =
     usuarioIndividual;
 
+    
    
   return (
     <div className="container">
