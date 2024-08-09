@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useVentas } from "../context/VentasContext.jsx";
 import { UseAuth } from "../context/AuthProvider.jsx";
 import { formatearNumero } from "../helpers/FormatearNumero.js";
+import { Spiner } from "../components/Spiner.jsx";
 
 export const ComprasPage = () => {
   const { usuarios } = UseAuth();
@@ -21,24 +22,27 @@ export const ComprasPage = () => {
       <h3 className="mt-5">Mis pedidos</h3>
       <div className="row mt-3">
         <div className="col-12">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Factura</th>
-                <th>Fecha</th>
-                <th>Estado</th>
-                {/* <th>Entrega</th> */}
-                <th>Total</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {ventasUsuarios.map((el) =>
-                loading ? (
-                  <tr>
-                    <td>Cargando...</td>
-                  </tr>
-                ) : (
+          {loading ? (
+            <div
+              className="d-flex justify-content-center"
+              style={{ marginTop: "250px" }}
+            >
+              <Spiner />{" "}
+            </div>
+          ) : (
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Factura</th>
+                  <th>Fecha</th>
+                  <th>Estado</th>
+                  {/* <th>Entrega</th> */}
+                  <th>Total</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ventasUsuarios.map((el) => (
                   <tr key={el.idventas}>
                     <td>{el.numeroFactura}</td>
                     <td>{el.fecha}</td>
@@ -57,10 +61,10 @@ export const ComprasPage = () => {
                       </div>
                     </td>
                   </tr>
-                )
-              )}
-            </tbody>
-          </table>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
     </div>
