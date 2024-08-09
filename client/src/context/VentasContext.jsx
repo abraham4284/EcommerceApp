@@ -151,6 +151,7 @@ export const VentasProvider = ({ children }) => {
         updateEstadoVentas,
         getIdVentas,
         setLoadingVentaIndividual,
+        setDetalleVentas,
 
         getFormaDePago,
         
