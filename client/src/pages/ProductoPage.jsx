@@ -16,19 +16,21 @@ export const ProductoPage = () => {
     loadingProductoIndividual,
     setLoadingProductoIndividual,
     setProductoIndividual,
+    getProductos
   } = UseProductos();
 
   useEffect(() => {
-    const getProductoFetchId = async () => {
+    const getProductoFetchId = async (id) => {
       setLoadingProductoIndividual(true);
       setProductoIndividual([]);
       await getIdProductos(id);
+      await getProductos();
       setLoadingProductoIndividual(false);
     };
-    getProductoFetchId();
+    getProductoFetchId(id);
   }, [id]);
 
-  
+
   const handleNavigate = () => {
     navigate(-1);
   };
