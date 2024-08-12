@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Spiner } from "../components";
 import { formatearNumero } from "../helpers/FormatearNumero";
 import { UseCarrito } from "../context/CarritoContext";
 import { UseProductos } from "../context/ProductosContext";
+import { SpinderDetalles } from "../components/SpinderDetalles";
 
 export const ProductoPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const { addToCarrito,deleteProducto,chekingProductoCarrito } = UseCarrito();
-  const { getIdProductos, productoIndividual, loading } = UseProductos();
+  const { getIdProductos, productoIndividual, loadingProductoIndividual } = UseProductos();
 
   useEffect(() => {
     const getProductoFetchId = async () => {
@@ -25,14 +25,16 @@ export const ProductoPage = () => {
 
   const productoEncontrado = productoIndividual && chekingProductoCarrito(productoIndividual);
 
+  
+
   return (
     <>
-      {loading ? (
+      {loadingProductoIndividual ? (
         <div
           className="d-flex justify-content-center"
           style={{ marginTop: "250px" }}
         >
-          <Spiner />
+          <SpinderDetalles />
         </div>
       ) : (
          

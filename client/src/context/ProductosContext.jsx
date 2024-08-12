@@ -21,6 +21,7 @@ export const ProductoProvider = ({ children }) => {
   const [productos, setProductos] = useState([]);
   const [productoIndividual, setProductoIndividual] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadingProductoIndividual, setLoadingProductoIndividual] = useState(true);
   const [error, setError] = useState(null);
 
  
@@ -48,10 +49,10 @@ export const ProductoProvider = ({ children }) => {
       const { data } = await getIdProductosRequest(id);
       if (!data) {
         setProductoIndividual(null);
-        setLoading(false);
+        setLoadingProductoIndividual(false);
       } else {
         setProductoIndividual(data);
-        setLoading(false);
+        setLoadingProductoIndividual(false);
       }
     } catch (error) {
       console.log(error);
@@ -120,6 +121,7 @@ export const ProductoProvider = ({ children }) => {
         error,
         loading,
         productoIndividual,
+        loadingProductoIndividual,
         getProductos,
         getIdProductos,
         createProductos,
