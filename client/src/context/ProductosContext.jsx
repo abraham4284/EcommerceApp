@@ -127,6 +127,8 @@ export const ProductoProvider = ({ children }) => {
         createProductos,
         updateProductos,
         deleteProductos,
+        setLoadingProductoIndividual,
+        setProductoIndividual
       }}
     >
       {children}
