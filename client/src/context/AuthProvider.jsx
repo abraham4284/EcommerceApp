@@ -222,13 +222,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (error.length > 0) {
+    if (error && error.length > 0) {
       const timer = setTimeout(() => {
         setError([]);
       }, 5000);
       return () => clearTimeout(timer);
     }
   }, [error]);
+  
 
   const logout = async () => {
     await logoutRequest()
@@ -251,8 +252,6 @@ export const AuthProvider = ({ children }) => {
           setLoading(false);
         }
       } catch (error) {
-        console.log(error);
-        console.log("Error funcion CheckLogin AuthContext");
         setisAutenticated(false);
         setLoading(false);
         setUsuarios(null);
