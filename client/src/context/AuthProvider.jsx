@@ -7,6 +7,7 @@ import {
   createUsuariosSuperAdminRequest,
   updateUsuariosRequest,
   getIdUsuariosRequest,
+  logoutRequest,
 } from "../Api/Autentificacion";
 import Cookies from "js-cookie";
 import { Spiner } from "../components/Spiner";
