@@ -237,16 +237,8 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const checkLogin = async () => {
-      const cookies = Cookies.get();
-      console.log(cookies.token,'Token de chequeo');
-      if (!cookies.token) {
-        setisAutenticated(false);
-        setLoading(false);
-        setUsuarios(null);
-        return;
-      }
       try {
-        const { data } = await verifyTokenRequest(cookies.token);
+        const { data } = await verifyTokenRequest(); // Haces la solicitud al backend para verificar el token
         console.log(data, "checkLogin AutContext");
         if (!data) {
           setisAutenticated(false);
