@@ -229,8 +229,8 @@ export const AuthProvider = ({ children }) => {
     }
   }, [error]);
 
-  const logout = () => {
-    Cookies.remove("token");
+  const logout = async () => {
+    await logoutRequest()
     setisAutenticated(false);
     setUsuarios(null);
   };

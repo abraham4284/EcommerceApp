@@ -5,6 +5,7 @@ export const getIdUsuariosRequest = (id)=> axios.get(`/usuarios/${id}`);
 export const loginUsuario = (data)=> axios.post("/login",data)
 export const createUsuarios = (data)=> axios.post("/registro",data);
 export const createUsuariosSuperAdminRequest = (data)=> axios.post("/superadmin",data);
+export const logoutRequest = ()=> axios.post("/logout");
 
 export const updateUsuariosRequest = (id,data)=> axios.put(`/usuarios/${id}`,data);
 
