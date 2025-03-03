@@ -20,6 +20,8 @@ export const Home = () => {
     getProductos()
  },[])
 
+ console.log(productos)
+
   const handlePrev = () => {
     setActiveIndex((prevIndex) =>
       prevIndex === 0 ? productos.length - 1 : prevIndex - 1

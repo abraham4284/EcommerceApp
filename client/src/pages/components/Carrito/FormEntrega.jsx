@@ -49,10 +49,11 @@ export const FormEntrega = ({ onFormSubmit, onCancel, getDomicilios }) => {
     getDomicilios();
   };
 
+  // col-sm-12 col-md-2
   return (
     <div className="container mt-3">
       <form className="row" onSubmit={handleSubmit}>
-        <div className="col-6">
+        <div className="col-sm-12 col-md-6">
           <div className="mb-3">
             <label htmlFor="codigoPostal" className="form-label">
               Codigo postal
@@ -66,7 +67,7 @@ export const FormEntrega = ({ onFormSubmit, onCancel, getDomicilios }) => {
             />
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-sm-12 col-md-6">
           <div className="mb-3">
             <label htmlFor="calle" className="form-label">
               Calle
@@ -80,7 +81,7 @@ export const FormEntrega = ({ onFormSubmit, onCancel, getDomicilios }) => {
             />
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-sm-12 col-md-6">
           <div className="mb-3">
             <label htmlFor="numero" className="form-label">
               Numero
@@ -94,8 +95,8 @@ export const FormEntrega = ({ onFormSubmit, onCancel, getDomicilios }) => {
             />
           </div>
         </div>
-        <div className="col-6">
-          <div className="mb-3">
+        <div className="col-sm-12 col-md-6">
+          <div className="mb-">
             <label htmlFor="descripcion" className="form-label">
               Descripcion
             </label>

@@ -56,8 +56,6 @@ export const CardCarritoCompras = ({
     (el) => el.idDomicilio === Number(selectedDomicilio)
   );
 
-
-
   const btnFinalizarCompras = () => {
     if (selectedFormaPago === null) {
       Swal.fire({
@@ -66,11 +64,14 @@ export const CardCarritoCompras = ({
       });
       return;
     }
-    if (metodoEnvio === "envio" && (selectedDomicilio === null || !domicilioEntrega)) {
+    if (
+      metodoEnvio === "envio" &&
+      (selectedDomicilio === null || !domicilioEntrega)
+    ) {
       Swal.fire({
         title: "El campo domicilio es obligatorio",
-        text:"Si no tienes un domicilio aun guardado, debes crear uno para llevar tu compra a destino",
-        icon: "error"
+        text: "Si no tienes un domicilio aun guardado, debes crear uno para llevar tu compra a destino",
+        icon: "error",
       });
       return;
     }
@@ -90,7 +91,6 @@ export const CardCarritoCompras = ({
       idDomicilio: selectedDomicilio,
     }));
 
-  
     createVentas(ventaData);
     handleResetCarrito();
     Swal.fire({
@@ -114,7 +114,9 @@ export const CardCarritoCompras = ({
           </span>
         </div>
         <div className="shipping">
-          <span>Envío:</span>
+          <div className="cont-envio">
+            <span>Envío:</span>
+          </div>
           <div className="form-check">
             <input
               className="form-check-input"
